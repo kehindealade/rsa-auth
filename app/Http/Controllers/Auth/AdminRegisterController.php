@@ -44,23 +44,6 @@ class AdminRegisterController extends Controller
     }
 
     public function showRegisterForm(){
-        $rsa = new RSA();
-        //dd(base_path());
-        
-        $publicKey = file_get_contents(base_path() . DIRECTORY_SEPARATOR . 'Publickey.php');
-        $rsa->loadKey($publicKey);
-        $rsa->setPublicKey();
-
-        $text = "Kenny";
-        $rsa->setEncryptionMode(RSA::ENCRYPTION_PKCS1);
-        $ciperText = $rsa->encrypt($text);
-        file_put_contents(base_path() . DIRECTORY_SEPARATOR . 'Encryptkey.bin', $ciperText);
-
-        /* $privateKey = file_get_contents(base_path() . DIRECTORY_SEPARATOR . 'Privatekey.php');
-        $rsa->loadKey($privateKey);
-
-        dd($rsa->decrypt($ciperText)); */
-
         return view('admin.auth.register');
     }
     /**

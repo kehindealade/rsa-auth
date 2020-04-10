@@ -24,11 +24,11 @@ class AdminController extends Controller
        
         $privateKey = file_get_contents(base_path() . DIRECTORY_SEPARATOR . 'Privatekey.php');
         $rsa->loadKey($privateKey);
-        $key = '0x' . $request->payload;
+        $rsa->setPrivateKey();
         $decryptedData = $rsa->decrypt($request->payload);
         
         echo $decryptedData;
-        
+
         }catch(\Throwable $error){
             return redirect()->back()->withErrors("Wrong Encrypted Key");
         }

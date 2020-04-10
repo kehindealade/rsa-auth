@@ -13,7 +13,7 @@
              @endforeach
              @endif
 
-<input type="text" name="payl">
+<input type="text" name="payload">
 <input type="submit" value="Send Payload">
 </form>
 @endsection
